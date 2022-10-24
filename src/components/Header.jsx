@@ -3,16 +3,33 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  // Auth Context
+  const { user, logOut } = useContext(AuthContext);
 
+  // Handle Dark mode
   const toggleMode = () => {
     setMode(!mode);
+  };
+
+  // user avatar
+  const avatar =
+    user?.photoURL ||
+    "https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png";
+
+  // Handle logout mode
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("User Log Out");
+      })
+      .catch((err) => toast.error(err.message));
   };
 
   return (
@@ -60,12 +77,16 @@ const Header = () => {
                   />
                 )}
                 <img
-                  src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png"
+                  src={avatar}
                   alt="robiul-islam"
-                  className="w-[50px] h-[50px]"
+                  className="w-[50px] h-[50px] rounded-full cursor-pointer"
+                  title={user?.displayName}
                 />
-                {user?.uid ? (
-                  <button className="py-2 px-4 text-white font-semibold bg-green-600 rounded hover:bg-green-700">
+                {user?.email ? (
+                  <button
+                    onClick={handleLogOut}
+                    className="py-2 px-4 text-white font-semibold bg-green-600 rounded hover:bg-green-700"
+                  >
                     Log out
                   </button>
                 ) : (
@@ -93,9 +114,10 @@ const Header = () => {
                 />
               )}
               <img
-                src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png"
+                src={avatar}
                 alt="robiul-islam"
-                className="w-[40px] h-[40px] ml-2"
+                className="ml-3 w-[40px] h-[40px] rounded-full cursor-pointer"
+                title={user?.displayName}
               />
               <button
                 className="p-2 -mr-1 transition duration-200 text-2xl"
@@ -129,7 +151,10 @@ const Header = () => {
                   </NavLink>
                 ))}
                 <Link to="/login">
-                  <button className="py-2 px-4 mt-2 text-white font-semibold bg-red-600 rounded hover:bg-red-700">
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="py-2 px-4 mt-2 text-white font-semibold bg-red-600 rounded hover:bg-red-700"
+                  >
                     Login
                   </button>
                 </Link>

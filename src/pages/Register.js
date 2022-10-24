@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthProvider';
 
 const Register = () => {
 
-  const {setUser, signInGoogle} = useContext(AuthContext);
+  const {setUser, signInGoogle, registerUser, updateUserProfile} = useContext(AuthContext);
 
   // handle google login
   const handleGoogleLogin = () =>{
@@ -19,6 +19,36 @@ const Register = () => {
     .catch(err => toast.error(err.message))
   }
 
+  // Handle submit
+  const handleSubmit = e =>{
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    const email = form.email.value;
+
+    registerUser(email, password)
+    .then(result => {
+      const user = result.user;
+      setUser(user);
+      toast.success('User created successfully!!')
+
+      // Update user profile
+      updateUserProfile(name, photo)
+      .then(() =>{
+        toast.success('User profile updated');
+        console.log(user);
+      })
+      .catch(err => toast.error(err.message))
+    })
+    .catch(err => toast.error(err.message))
+
+
+    form.reset();
+  }
+
 
 
   return (
@@ -29,6 +59,7 @@ const Register = () => {
           <p className='text-sm text-gray-400'>Create a new account</p>
         </div>
         <form
+          onSubmit={handleSubmit}
           noValidate=''
           action=''
           className='space-y-12 ng-untouched ng-pristine ng-valid'
@@ -43,6 +74,19 @@ const Register = () => {
                 name='name'
                 id='name'
                 placeholder='Enter Your Name Here'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
+                data-temp-mail-org='0'
+              />
+            </div>
+            <div>
+              <label htmlFor='email' className='block mb-2 text-sm'>
+               Photo Url
+              </label>
+              <input
+                type='text'
+                name='photo'
+                id='photo'
+                placeholder='Enter Your photo url Here'
                 className='w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900'
                 data-temp-mail-org='0'
               />

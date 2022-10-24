@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState(false);
+
+  const { user } = useContext(AuthContext);
 
   const toggleMode = () => {
     setMode(!mode);
@@ -14,7 +17,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white py-4 shadow-sm">
+      <header className="bg-white py-2 shadow-sm">
         <div className="container mx-auto ">
           <div className="flex justify-between">
             <div className="logo">
@@ -61,11 +64,17 @@ const Header = () => {
                   alt="robiul-islam"
                   className="w-[50px] h-[50px]"
                 />
-                <Link to="/login">
-                  <button className="py-2 px-4 text-white font-semibold bg-red-600 rounded hover:bg-red-700">
-                    Login
+                {user?.uid ? (
+                  <button className="py-2 px-4 text-white font-semibold bg-green-600 rounded hover:bg-green-700">
+                    Log out
                   </button>
-                </Link>
+                ) : (
+                  <Link to="/login">
+                    <button className="py-2 px-4 text-white font-semibold bg-red-600 rounded hover:bg-red-700">
+                      Login
+                    </button>
+                  </Link>
+                )}
               </nav>
             </div>
 

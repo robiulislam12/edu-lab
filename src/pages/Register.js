@@ -1,7 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../context/AuthProvider';
 
 const Register = () => {
+
+  const {setUser, signInGoogle} = useContext(AuthContext);
+
+  // handle google login
+  const handleGoogleLogin = () =>{
+    signInGoogle()
+    .then(result =>{
+      const user = result.user;
+      toast.success('User create successfully')
+      setUser(user);
+      console.log(user)
+    })
+    .catch(err => toast.error(err.message))
+  }
+
+
+
   return (
     <div className='flex justify-center items-center pt-8'>
       <div className='flex flex-col max-w-md p-3 rounded-md sm:p-10 bg-gray-300 text-gray-900'>
@@ -76,6 +95,7 @@ const Register = () => {
         </div>
         <div className='flex justify-center space-x-4'>
           <button
+            onClick={handleGoogleLogin}
             aria-label='Log in with Google'
             className='p-3 rounded-sm'
           >

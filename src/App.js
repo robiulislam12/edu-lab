@@ -1,13 +1,8 @@
-import { useContext } from "react";
-import { AuthContext } from "./context/AuthProvider";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/router";
 
 function App() {
-  const {user} = useContext(AuthContext);
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello ,{user.name}!
-    </h1>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

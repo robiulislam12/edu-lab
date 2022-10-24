@@ -5,10 +5,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
 
     // initial state
-    const [user, setUser] = useState({
-        name: 'Robiul islam',
-        age: 20
-    });
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     // Provide this value

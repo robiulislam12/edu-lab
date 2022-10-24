@@ -20,3 +20,25 @@ ul li {
 a {
   text-decoration: none;
 }
+
+.flex_nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header responsive */
+@media only screen and (max-width:667px) {
+  .nav_link {
+    display: none;
+  }
+
+  header>div,
+  .padding {
+    padding: 0px 10px;
+  }
+
+  .hero-section .content {
+    flex-direction: column;
+  }
+
+}

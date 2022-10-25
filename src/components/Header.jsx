@@ -50,6 +50,7 @@ const Header = () => {
                   ["Home", "/home"],
                   ["About", "/about"],
                   ["Courses", "/courses"],
+                  ["Faq", "/faq"],
                   ["Blogs", "/blogs"],
                 ].map(([title, url], index) => (
                   <NavLink
@@ -137,6 +138,7 @@ const Header = () => {
                   ["Home", "/home"],
                   ["About", "/about"],
                   ["Courses", "/courses"],
+                  ["FaQ", "/faq"],
                   ["Blogs", "/blogs"],
                 ].map(([title, url], index) => (
                   <NavLink

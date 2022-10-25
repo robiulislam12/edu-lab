@@ -3,6 +3,7 @@ import ErrorComponent from "../components/ErrorCompont";
 import Main from "../layouts/Main";
 import About from "../pages/About";
 import Blogs from "../pages/Blogs";
+import CourseDetails from "../pages/CourseDetails";
 import Courses from "../pages/Courses";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
                 path: '/courses',
                 loader: () => fetch('https://server-xi-six.vercel.app/courses/'),
                 element: <Courses/>,
+            },
+            {
+                path: '/courses/:id',
+                element: <CourseDetails/>,
             },
             {
                 path: '/about',

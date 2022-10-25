@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/courses',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://server-xi-six.vercel.app/courses/'),
                 element: <Courses/>,
             },
             {

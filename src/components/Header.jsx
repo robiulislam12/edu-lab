@@ -76,12 +76,14 @@ const Header = () => {
                     className="cursor-pointer text-2xl"
                   />
                 )}
-                <img
-                  src={avatar}
-                  alt="robiul-islam"
-                  className="w-[50px] h-[50px] rounded-full cursor-pointer"
-                  title={user?.displayName}
-                />
+                {user?.uid && (
+                  <img
+                    src={avatar}
+                    alt={user?.displayName}
+                    className="w-[50px] h-[50px] rounded-full cursor-pointer"
+                    title={user?.displayName}
+                  />
+                )}
                 {user?.email ? (
                   <button
                     onClick={handleLogOut}
@@ -115,7 +117,7 @@ const Header = () => {
               )}
               <img
                 src={avatar}
-                alt="robiul-islam"
+                alt={user?.displayName}
                 className="ml-3 w-[40px] h-[40px] rounded-full cursor-pointer"
                 title={user?.displayName}
               />

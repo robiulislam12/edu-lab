@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthProvider';
 const Login = () => {
 
   // Auth Context
-  const {setUser, signInGoogle} = useContext(AuthContext);
+  const {setUser, signInGoogle, login} = useContext(AuthContext);
 
   // handle google login
   const handleGoogleLogin = () =>{
@@ -20,6 +20,25 @@ const Login = () => {
     .catch(err => toast.error(err.message))
   }
 
+  // handle login with email and password
+  const handleLogin = (e) =>{
+    e.preventDefault()
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // user login 
+    login(email, password)
+    .then((result) =>{
+      const user = result.user;
+      setUser(user);
+      toast.success('User Login Successfully....')
+    })
+    .catch(err => toast.error(err.message))
+
+    form.reset();
+  }
+
 
   return (
     <div className='flex justify-center items-center pt-8'>
@@ -31,6 +50,7 @@ const Login = () => {
           </p>
         </div>
         <form
+        onSubmit={handleLogin}
           noValidate=''
           action=''
           className='space-y-6 ng-untouched ng-pristine ng-valid'

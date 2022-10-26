@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PDF from 'react-to-pdf';
 
 const CourseDetails = () => {
   // Initial course
@@ -7,6 +8,9 @@ const CourseDetails = () => {
 
   // get params
   const { id } = useParams();
+
+  // Pdf reference
+  const ref = createRef();
 
   useEffect(() => {
     async function fetchData() {
@@ -29,16 +33,24 @@ const CourseDetails = () => {
     whatWillLearn,
   } = course;
 
+
+
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8" ref={ref} >
       <div className="w-3/4 bg-white shadow rounded p-4 mx-auto">
-        <img src={img} alt={courseName} className="rounded w-full" />
-        <div className="my-6">
+      <div className="my-6 flex justify-between items-center">
           <h2 className="text-4xl text-black font-semibold">
-            {id}. {courseName}
+            {id}. {courseName} <small className="text-base text-white bg-pink-500 py-0 px-3 rounded"> {courseAuthorName}</small>
           </h2>
+
+          
+          <PDF targetRef={ref} filename="code-example.pdf" className="text-center">
+          {({ toPdf }) => <button onClick={toPdf} className="bg-green-600 text-white py-2 px-4 rounded">Download PDF</button>}
+          </PDF> 
+        
         </div>
-        <div className="course_details flex justify-between border rounded py-3 px-4 mb-3">
+        <img src={img} alt={courseName} className="rounded w-full" />
+        <div className="course_details flex justify-between border rounded py-3 px-4 my-4">
           <span>Total Students: {totalStudents}</span>
           <span>Duration: {courseLength}</span>
           <span>Ratings: {rating} out of 5</span>

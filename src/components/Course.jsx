@@ -18,7 +18,7 @@ const Course = ({ course }) => {
         <h2 className="text-lg font-medium text-black my-2">{courseName}</h2>
       </Link>
       <h4 className="text-base font-bold mt-[-5px]">
-        By
+        By{" "}
         <span className="text-gray-500 underline cursor-pointer">
           {courseAuthorName}
         </span>

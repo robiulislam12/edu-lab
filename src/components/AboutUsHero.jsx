@@ -1,12 +1,12 @@
 import React from "react";
-import Img from "../assets/hero-img.svg";
+import Img from "../assets/about-hero-img.svg";
 
-const HeroSection = () => {
+const AboutUsHero = () => {
   return (
     <>
-      <div className="container mx-auto hero-section flex justify-between items-center mr-5">
-        <div className="hero-content mr-8">
-          <h1 className="text-5xl font-bold mb-4">Don't Run, Just Crawl</h1>
+      <div className="container mx-auto hero-section flex justify-between items-center mr-5 py-8">
+        <div className="hero-content">
+          <h1 className="text-5xl font-bold mb-4">About Us</h1>
           <p>
             Matrix Learner is an open platform for learning web development.
             Here you will find advanced tutorials starting from Basic in the
@@ -29,4 +29,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default AboutUsHero;

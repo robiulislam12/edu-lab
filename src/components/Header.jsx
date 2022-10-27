@@ -85,7 +85,7 @@ const Header = () => {
                     title={user?.displayName}
                   />
                 )}
-                {user?.email ? (
+                {user?.uid ? (
                   <button
                     onClick={handleLogOut}
                     className="py-2 px-4 text-white font-semibold bg-green-600 rounded hover:bg-green-700"

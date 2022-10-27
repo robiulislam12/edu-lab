@@ -3,11 +3,13 @@ import ErrorComponent from "../components/ErrorCompont";
 import Main from "../layouts/Main";
 import About from "../pages/About";
 import Blogs from "../pages/Blogs";
+import CheckOut from "../pages/CheckOut";
 import CourseDetails from "../pages/CourseDetails";
 import Courses from "../pages/Courses";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About/>
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute><CheckOut/></PrivateRoute>
             },
             {
                 path: '/blogs',

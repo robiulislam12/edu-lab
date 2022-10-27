@@ -1,4 +1,4 @@
-# Edu Lab - A E-learning platform
+# Edu Lab - A E-Learning platform
 
 ## 3 Authentication system
 
@@ -21,4 +21,4 @@
 - React icons
 - Tailwind css - for UI
 
-## Tribute - [Shikhun.net](shikhun.net) all content inspired by it.
+## Tribute - [Shikhun.net](https://www.shikhun.net/) all content inspired by it.

@@ -154,14 +154,20 @@ const Header = () => {
                     {title}
                   </NavLink>
                 ))}
-                <Link to="/login">
+                {user?.uid ? (
                   <button
-                    onClick={() => setIsOpen(false)}
-                    className="py-2 px-4 mt-2 text-white font-semibold bg-red-600 rounded hover:bg-red-700"
+                    onClick={handleLogOut}
+                    className="py-2 px-4 text-white font-semibold bg-green-600 rounded hover:bg-green-700"
                   >
-                    Login
+                    Log out
                   </button>
-                </Link>
+                ) : (
+                  <Link to="/login">
+                    <button className="py-2 px-4 text-white font-semibold bg-red-600 rounded hover:bg-red-700">
+                      Login
+                    </button>
+                  </Link>
+                )}
               </nav>
             )}
           </div>

@@ -59,7 +59,6 @@ const Register = () => {
       updateUserProfile(name, photo)
       .then(() =>{
         toast.success('User profile updated');
-        navigate(from, { replace: true });
       })
       .catch(err => toast.error(err.message))
     })

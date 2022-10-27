@@ -34,8 +34,8 @@ const CourseDetails = () => {
   } = course;
 
   return (
-    <div className="container mx-auto py-8" ref={ref}>
-      <div className="w-3/4 bg-white shadow rounded p-4 mx-auto">
+    <div className="container mx-auto py-8 course_details" ref={ref}>
+      <div className="lg:w-3/4 bg-white shadow rounded p-4 mx-auto sm:w-full ">
         <div className="my-6 flex justify-between items-center">
           <h2 className="text-4xl text-black font-semibold">
             {id}. {courseName}{" "}
@@ -48,12 +48,12 @@ const CourseDetails = () => {
           <PDF
             targetRef={ref}
             filename="code-example.pdf"
-            className="text-center"
+            className="text-center "
           >
             {({ toPdf }) => (
               <button
                 onClick={toPdf}
-                className="bg-green-600 text-white py-2 px-4 rounded"
+                className="bg-green-600 text-white py-2 px-4 rounded btn"
               >
                 Download PDF
               </button>
@@ -82,7 +82,7 @@ const CourseDetails = () => {
           {/* Get Premium access button */}
           
           <Link to={`/checkout/${id}`}>
-            <button className="bg-green-600 text-white py-2 px-4 rounded">
+            <button className="bg-green-600 text-white py-2 px-4 rounded btn">
               Get Premium Access
             </button>
           </Link>

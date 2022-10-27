@@ -34,7 +34,7 @@ const CheckOut = () => {
   }
 
   return (
-    <div className='w-1/2 mx-auto'>
+    <div className='lg:w-1/2 mx-auto sm:w-full px-2'>
         <div className="course_details border rounded p-4 bg-white mt-4" >
             <h2 className="text-4xl font-semibold ">Your Course Details</h2>
             <h2 className="text-2xl font-regular ">Course Name: {course.courseName}</h2>

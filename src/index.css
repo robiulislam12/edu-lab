@@ -31,6 +31,31 @@ a {
 
 /* Header responsive */
 @media only screen and (max-width:667px) {
+  .container {
+    padding: 0px 10px;
+  }
+
+  .courses_container {
+    padding: 50px 0;
+    grid-template-columns: 1fr;
+  }
+
+  .course_details {
+    padding: 50px 10px;
+  }
+
+  .course_details .flex {
+    flex-direction: column;
+  }
+
+  .course_details .btn {
+    margin-top: 20px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+  }
+
   .nav_link {
     display: none;
   }

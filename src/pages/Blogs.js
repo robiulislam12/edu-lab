@@ -3,7 +3,7 @@ import React from "react";
 const Blogs = () => {
   return (
     <div className="container mx-auto py-8">
-      <div className="grid grid-cols-2 gap-4 blogs">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-4 blogs">
         <div className="blog bg-white rounded shadow p-4">
           <img
             src="https://nordicapis.com/wp-content/uploads/What-is-CORS-.png"

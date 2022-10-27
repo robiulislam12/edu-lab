@@ -5,7 +5,7 @@ import Course from '../components/Course';
 const Courses = () => {
   const courses = useLoaderData();
   return (
-    <div className='container mx-auto py-8'>
+    <div className='container mx-auto py-8 '>
       <div className="courses_container">
         <div className="left_side bg-white shadow p-4 rounded h-screen" >
           {
@@ -16,7 +16,7 @@ const Courses = () => {
             )
           }
         </div>
-        <div className="right_side grid grid-cols-3 gap-4">
+        <div className="right_side grid lg:grid-cols-3 gap-4 sm:grid-cols-1">
           {
             courses.map(course => <Course key={course.id} course={course}></Course> )
           }

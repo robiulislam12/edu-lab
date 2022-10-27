@@ -4,7 +4,7 @@ import Img from "../assets/hero-img.svg";
 const HeroSection = () => {
   return (
     <>
-      <div className="container mx-auto hero-section flex justify-between items-center mr-5">
+      <div className="container mx-auto hero-section flex justify-between items-center mr-5 hero-section">
         <div className="hero-content mr-8">
           <h1 className="text-5xl font-bold mb-4">Don't Run, Just Crawl</h1>
           <p>

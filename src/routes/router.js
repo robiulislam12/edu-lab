@@ -6,6 +6,7 @@ import Blogs from "../pages/Blogs";
 import CheckOut from "../pages/CheckOut";
 import CourseDetails from "../pages/CourseDetails";
 import Courses from "../pages/Courses";
+import Faq from "../pages/Faq";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -47,8 +48,8 @@ const router = createBrowserRouter([
                 element: <Blogs/>
             },
             {
-                path: '/blogs',
-                element: <Blogs/>
+                path: '/faq',
+                element: <Faq/>
             },
             {
                 path: '/login',

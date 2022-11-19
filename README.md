@@ -1,5 +1,7 @@
 # Edu Lab - A E-Learning platform
 
+## [Live Site](https://edu-lab-c652d.web.app/)
+
 ## 3 Authentication system
 
 - Email and password

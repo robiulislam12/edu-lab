@@ -8,7 +8,7 @@ const HeroSection = () => {
         <div className="hero-content mr-8">
           <h1 className="text-5xl font-bold mb-4">Don't Run, Just Crawl</h1>
           <p>
-            Matrix Learner is an open platform for learning web development.
+            EduLab is an open platform for learning web development.
             Here you will find advanced tutorials starting from Basic in the
             form of courses and you can start learning by enrolling. If you have
             any problem, you will get huge help from the community.
